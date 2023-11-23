@@ -1,0 +1,12 @@
+.update-employee {
+    padding: 0 20% 0 20%;
+}
+
+.required::after {
+    content: "*";
+    color: red;
+}
+
+.buttons {
+    padding-top: 2%;
+}

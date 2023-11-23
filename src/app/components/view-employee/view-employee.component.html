@@ -1,0 +1,20 @@
+<button type="button" class="btn btn-default btn-sm" [routerLink]="['/employee']">Back</button>
+<div class="employee-details">
+    <div class="card" *ngIf="employee">
+        <div class="card-body">
+            <h5 class="card-title">{{employee.firstName + " " + employee.lastName}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{"ID: " + employee.employeeId}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{"Role: " + employee.role}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{employee.gender}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{"Salary: " + employee.salary}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{"Hire Date: " + employee.hireDate}}</h6>
+            <p>
+                {{employee.biography}}
+            </p>
+            <button type="button" class="btn btn-success btn-sm buttons"
+                [routerLink]="['/update-employee', employee.employeeId]">Update</button>
+            <button type="button" class="btn btn-danger btn-sm"
+                (click)="deleteEmployee(employee.employeeId)">Delete</button>
+        </div>
+    </div>
+</div>

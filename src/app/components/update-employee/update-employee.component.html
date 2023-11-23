@@ -1,0 +1,95 @@
+<div class="update-employee" *ngIf="employee">
+    <form [formGroup]="updateEmployeeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="firstName" class="required">First Name</label>
+            <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="First Name">
+        </div>
+        <div
+            *ngIf="updateEmployeeForm.controls['firstName'].invalid && updateEmployeeForm.controls['firstName'].dirty || updateEmployeeForm.controls['firstName'].touched">
+            <div *ngIf="updateEmployeeForm.controls['firstName'].errors?.required" class="alert alert-danger">First name
+                is
+                required</div>
+        </div>
+        <div class="form-group">
+            <label for="lastName" class="required">Last Name</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name">
+        </div>
+        <div
+            *ngIf="updateEmployeeForm.controls['lastName'].invalid && updateEmployeeForm.controls['lastName'].dirty || updateEmployeeForm.controls['lastName'].touched">
+            <div *ngIf="updateEmployeeForm.controls['lastName'].errors?.required" class="alert alert-danger">Last name
+                is
+                required</div>
+        </div>
+        <div class="form-group">
+            <label for="role" class="required">Role</label>
+            <select class="form-control" formControlName="role">
+                <option value="" disabled selected>Select Role</option>
+                <option *ngFor="let role of roles | keyvalue" [value]="role.key.toString()">{{role.value}}</option>
+            </select>
+        </div>
+        <div
+            *ngIf="updateEmployeeForm.controls['role'].invalid && updateEmployeeForm.controls['role'].dirty || updateEmployeeForm.controls['role'].touched">
+            <div *ngIf="updateEmployeeForm.controls['role'].errors?.required" class="alert alert-danger">Role is
+                required</div>
+        </div>
+        <div class="form-group">
+            <label for="biography" class="required">Biography</label>
+            <textarea type="text" class="form-control" id="biography" formControlName="biography"
+                placeholder="Employee Biography"></textarea>
+        </div>
+        <div
+            *ngIf="updateEmployeeForm.controls['biography'].invalid && updateEmployeeForm.controls['biography'].dirty || updateEmployeeForm.controls['biography'].touched">
+            <div *ngIf="updateEmployeeForm.controls['biography'].errors?.required" class="alert alert-danger">Biography
+                is
+                required</div>
+        </div>
+        <div class="form-group">
+            <label for="gender" class="required">Gender</label>
+            <select class="form-control" formControlName="gender">
+                <option value="" disabled selected>Select gender</option>
+                <option *ngFor="let gender of genders | keyvalue" [value]="gender.key.toString()">{{gender.value}}
+                </option>
+            </select>
+        </div>
+        <div
+            *ngIf="updateEmployeeForm.controls['gender'].invalid && updateEmployeeForm.controls['gender'].dirty || updateEmployeeForm.controls['gender'].touched">
+            <div *ngIf="updateEmployeeForm.controls['gender'].errors?.required" class="alert alert-danger">Gender is
+                required</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-4 col-sm-4">
+                <div class="form-group">
+                    <label class="required" for="hireDate">Hire Date</label>
+                    <input type="date" class="form-control" id="hireDate" formControlName="hireDate"
+                        placeholder="Hire Date">
+                </div>
+                <div
+                    *ngIf="updateEmployeeForm.controls['hireDate'].invalid && updateEmployeeForm.controls['hireDate'].dirty || updateEmployeeForm.controls['hireDate'].touched">
+                    <div *ngIf="updateEmployeeForm.controls['hireDate'].errors?.required" class="alert alert-danger">
+                        Hire
+                        date
+                        is
+                        required</div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-4 col-sm-4">
+                <div class="form-group">
+                    <label class="required" for="salary">Salary</label>
+                    <input type="number" min="0" class="form-control" formControlName="salary" id="salary"
+                        placeholder="Employee Salary">
+                </div>
+                <div
+                    *ngIf="updateEmployeeForm.controls['salary'].invalid && updateEmployeeForm.controls['salary'].dirty || updateEmployeeForm.controls['salary'].touched">
+                    <div *ngIf="updateEmployeeForm.controls['salary'].errors?.required" class="alert alert-danger">
+                        Salary
+                        is
+                        required</div>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-success" type="submit">Update</button>
+            <button class="btn btn-default" [routerLink]="['/employee']">Cancel</button>
+        </div>
+    </form>
+</div>

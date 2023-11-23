@@ -1,0 +1,26 @@
+<div class="employee-details">
+    <h1>All Employees</h1>
+    <p *ngIf="!employees">Loading...</p>
+    <table class="table table-striped" *ngIf="employees">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.firstName}}</td>
+                <td>{{employee.lastName}}</td>
+                <td>{{employee.role}}</td>
+                <td class="buttons">
+                    <button type="button" class="btn btn-default btn-sm"
+                        (click)="viewEmployee(employee.employeeId)">View</button>
+                    <button type="button" class="btn btn-success btn-sm"
+                        (click)="updateEmployee(employee.employeeId)">Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
