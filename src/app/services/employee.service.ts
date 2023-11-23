@@ -7,7 +7,7 @@ import { Employee } from '../interfaces/employee';
 })
 export class EmployeeService {
 
-  baseUrl: string = "http://employee-env.eba-at4dsqbh.us-east-2.elasticbeanstalk.com/api/v1/employees";
+  baseUrl: string = "https://employee-env.eba-at4dsqbh.us-east-2.elasticbeanstalk.com/api/v1/employees";
 
   constructor(private http: HttpClient) { }
 
